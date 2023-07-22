@@ -1,5 +1,6 @@
 <template>
   <div>
+    <Header />
     <NuxtPage />
   </div>
 </template>
@@ -14,11 +15,16 @@ useHead(() => ({
     { rel: 'stylesheet', href: 'https://site-assets.fontawesome.com/releases/v6.4.0/css/sharp-light.css' }
   ]
 }))
+
+import 'sanitize.css';
+import 'sanitize.css/forms.css';
+import 'sanitize.css/typography.css';
 </script>
 
-<style>
-
-
-
+<style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400;500;700&display=swap');
+
+body {
+  background-color: $background-color;
+}
 </style>
