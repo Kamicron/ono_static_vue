@@ -5,6 +5,7 @@
         <li><a class="nav_link" href="#">Accueil</a></li>
         <li><a class="nav_link" href="#">Roster</a></li>
         <li><a class="nav_link" href="#">Contact</a></li>
+        <Button @click="handleClick">Mon Bouton</Button>
       </ul>
     </nav>
     <header-logo title="h1"/>
