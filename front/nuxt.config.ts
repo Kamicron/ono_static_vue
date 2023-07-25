@@ -2,9 +2,6 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   components: true,
-  // plugins: [
-  //   '~/plugins/fontawesome.js'
-  // ],
   vite: {
     css: {
         preprocessorOptions: {

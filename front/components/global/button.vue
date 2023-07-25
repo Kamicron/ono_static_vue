@@ -25,6 +25,8 @@ import { ref, emit } from 'vue';
   position: relative;
   overflow: hidden;
   transform: skewX(-20deg);
+  box-shadow: inset 0 0 0 3px #fff;
+  border: none;
 
   span {
     position: relative;
@@ -38,13 +40,14 @@ import { ref, emit } from 'vue';
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 101%;
+    height: 101%;
     background-color: #fff;
     transform: scaleY(0);
     transform-origin: top;
     transition: transform 0.3s ease-in-out;
     z-index: 0;
+    box-sizing: border-box;
   }
 
   &:hover {
