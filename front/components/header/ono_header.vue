@@ -2,9 +2,9 @@
   <header>
     <nav class="nav">
       <ul class="nav__ul">
-        <li><a class="nav__ul--link" href="#">Accueil</a></li>
-        <li><a class="nav__ul--link" href="#">Roster</a></li>
-        <li><a class="nav__ul--link" href="#">Contact</a></li>
+        <li><a class="nav__ul--link" href="#"><div class="nav__ul--border">Accueil</div></a></li>
+        <li><a class="nav__ul--link" href="#"><div class="nav__ul--border">Roster</div></a></li>
+        <li><a class="nav__ul--link" href="#"><div class="nav__ul--border">Contact</div></a></li>
       </ul>
     </nav>
     <!-- <header-logo title="h1"/> -->
@@ -16,24 +16,59 @@
 
 <style lang="scss" scoped>
 header {
-  background-color: white;
+  background-color: $dark-gray;
   position: fixed;
   z-index: 100;
-  width: 500px;
-  margin-right: 500px;
-  clip-path: polygon(0 0, 100% 0%, 85% 100%, 0% 100%);
-  box-shadow: 20px 20px 20px red;
+  left: -150px;
+  top: 100px;
+  padding-left: $spacing-xl;
+  box-shadow: 20px 20px 20px $light-gray;
+  transform: skew(-45deg); // Appliquer le skew inverse pour que le texte reste droit
 
   .nav {
+    padding: 0 200px;
     &__ul {
       display: flex;
       gap: $spacing-m;
+      list-style: none;
+      padding: 0;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      
+      &--border {
+        border: 2px solid $white;
+        padding: 0 $spacing-l;
+        margin: 20px 0;
+        transform: skew(45deg); // Appliquer le skew à l'élément a pour créer le parallélogramme
+      }
 
-      &--link {
-        color: $background-color;
-        text-decoration: none;
+      li {
+        overflow: hidden;
+        position: relative;
+        margin-right: 10px;
+        a {
+          color: $white;
+          text-decoration: none;
+          font-family: $font-button;
+          font-size: $font-size-xl;
+          letter-spacing: $letter-spacing-wide;
+          font-weight: $font-weight-bold;
+        }
+
+        &--link {
+          display: block;
+          padding: 10px 20px;
+          text-decoration: none;
+          color: white;
+          &:before {
+            content: "";
+            display: block;
+          }
+        }
       }
     }
   }
 }
+
 </style>

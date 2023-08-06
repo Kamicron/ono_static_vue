@@ -17,8 +17,9 @@
 
 &__wrapper {
   position: fixed;
-  top: 150px;
+  top: 250px;
   left: -90px;
+  z-index: 100;
   writing-mode: vertical-rl;
   text-orientation: upright;
   border: none;
@@ -46,6 +47,7 @@
   &--text {
     margin: 0;
     color: $white;
+    letter-spacing: $letter-spacing-wide  ;
   }
 }
 }
