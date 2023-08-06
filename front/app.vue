@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header />
+    <header-ono-header />
     <NuxtPage />
   </div>
 </template>
