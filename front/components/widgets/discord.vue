@@ -13,42 +13,42 @@
 </script>
 
 <style lang='scss' scoped>
-    .discord {
+.discord {
+  &__wrapper {
+    position: fixed;
+    top: 250px;
+    left: -90px;
+    z-index: 100;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    border: none;
+    transition: transform 0.5s;
+    cursor: pointer;
+    background: transparent;
+    transform: translateX(0);
+    font-family: $font-button;
+    background-color: $dark-gray;
+    width: auto;
+    text-transform: uppercase;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: $spacing-l $spacing-s $spacing-l $spacing-l;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-l;
+    border-radius: 10px;
+    
 
-&__wrapper {
-  position: fixed;
-  top: 250px;
-  left: -90px;
-  z-index: 100;
-  writing-mode: vertical-rl;
-  text-orientation: upright;
-  border: none;
-  transition: transform 0.5s;
-  cursor: pointer;
-  background: transparent;
-  transform: translateX(0);
-  font-family: $font-button;
-  background-color: $light-gray;
-  width: auto;
-  text-transform: uppercase;
-  justify-content: flex-end;
-  align-items: flex-end;
-  padding: $spacing-l $spacing-s $spacing-l $spacing-l;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: $spacing-l;
-  border-radius: 10px;
+    &:hover {
+      transform: translateX(80px);
+    }
 
-  &:hover {
-    transform: translateX(80px);
+    &--text {
+      margin: 0;
+      color: $white;
+      letter-spacing: $letter-spacing-wide  ;
+    }
   }
-
-  &--text {
-    margin: 0;
-    color: $white;
-    letter-spacing: $letter-spacing-wide  ;
-  }
-}
 }
 </style>

@@ -41,6 +41,11 @@ header {
         padding: 0 $spacing-l;
         margin: 20px 0;
         transform: skew(45deg); // Appliquer le skew à l'élément a pour créer le parallélogramme
+        transition: border 0.3s ease-in-out;
+
+        &:hover {
+          border: 2px solid $secondary-color;
+        }
       }
 
       li {
@@ -54,6 +59,11 @@ header {
           font-size: $font-size-xl;
           letter-spacing: $letter-spacing-wide;
           font-weight: $font-weight-bold;
+          transition: color 0.3s ease-in-out;
+
+          &:hover {
+            color: $secondary-color;
+          }
         }
 
         &--link {
