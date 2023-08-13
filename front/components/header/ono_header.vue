@@ -2,9 +2,21 @@
   <header>
     <nav class="nav">
       <ul class="nav__ul">
-        <li><a class="nav__ul--link" href="#"><div class="nav__ul--border">Accueil</div></a></li>
-        <li><a class="nav__ul--link" href="#"><div class="nav__ul--border">Roster</div></a></li>
-        <li><a class="nav__ul--link" href="#"><div class="nav__ul--border">Contact</div></a></li>
+        <li>
+          <a class="nav__ul--link" href="#">
+            <border-text text="Acceuil" :fontSize="24" :borderWidth="3" color="white" hoverColor="secondary-color" />
+          </a>
+        </li>
+        <li>
+          <a class="nav__ul--link" href="#">
+            <border-text text="Roster" :fontSize="24" :borderWidth="3" color="white" hoverColor="secondary-color" />
+          </a>
+        </li>
+        <li>
+          <a class="nav__ul--link" href="#">
+            <border-text text="Contact" :fontSize="24" :borderWidth="3" color="white" hoverColor="secondary-color" />
+          </a>
+        </li>
       </ul>
     </nav>
     <!-- <header-logo title="h1"/> -->
@@ -24,7 +36,7 @@ header {
   padding-left: $spacing-xl;
   box-shadow: 20px 20px 20px $light-gray;
   transform: skew(-45deg); // Appliquer le skew inverse pour que le texte reste droit
-
+  padding: 20px 0;
   .nav {
     padding: 0 200px;
     &__ul {
@@ -35,17 +47,14 @@ header {
       justify-content: center;
       align-items: center;
       margin: 0;
-      
+      transform: skew(45deg); // Appliquer le skew inverse pour que le texte reste droit
+
       &--border {
         border: 2px solid $white;
         padding: 0 $spacing-l;
         margin: 20px 0;
         transform: skew(45deg); // Appliquer le skew à l'élément a pour créer le parallélogramme
         transition: border 0.3s ease-in-out;
-
-        &:hover {
-          border: 2px solid $secondary-color;
-        }
       }
 
       li {

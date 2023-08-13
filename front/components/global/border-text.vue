@@ -80,7 +80,7 @@ $colors: (
 
   &__content {
     padding: 0 $spacing-l;
-    margin: 20px 0;
+
     transform: skew(45deg); // Apply skew to the content to create the parallelogram
     transition: border 0.3s ease-in-out, color 0.3s ease-in-out;
     color: var(--color);

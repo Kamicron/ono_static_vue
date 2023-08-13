@@ -2,8 +2,7 @@
     <div class="header">
         <img class="header__img" src="static/img/landing-page/header.png" alt="membre des forces de l'ordre">
         <div class="header__title">
-            <div class="header__title--text">Old Not Obsolete</div>
-            <border-text text="Couou"/>
+            <border-text text="Old not Obsolete" :fontSize="124" :borderWidth="20" color="white"  />
         </div>
         <div class="header__spacer"></div>
     </div>
@@ -32,41 +31,15 @@ body {
         top: 50%;
         left: 50%;
         z-index: 1;
-        color: $white;
         display: flex;
         justify-content: center;
         align-items: center;
         font-family: $font-button;
         font-size: $font-size-xxxl;
         text-align: center;
-        -webkit-text-stroke: 4px $black;
-        transform: translate(-50%, -50%) skew(-45deg); // Combinez les transformations ici
+        -webkit-text-stroke: 1px $black;
+        transform: translate(-50%, -50%); // Combinez les transformations ici
 
-        &--text {
-            position: relative;
-            display: inline-block;
-            padding: 10px 20px; // Ajustez selon vos besoins
-            overflow: hidden; // Cache les parties des pseudo-éléments qui dépassent
-
-            &::before,
-            &::after {
-                content: "";
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                border: 2px solid $white;
-            }
-
-            &::before {
-                clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%, 4% 90%, 90% 4%);
-                z-index: -1;
-            }
-
-            &::after {
-                clip-path: polygon(10% 0, 100% 0, 96% 10%, 0 100%, 0 0);
-                z-index: -2;
-            }
-        }
     }
 
     &__img {
