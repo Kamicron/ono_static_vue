@@ -2,7 +2,13 @@
   <section class="borderText">
     <div class="borderText__container">
       <div class="borderText__item">
-        <div :class="[dynamicClass, hoverClass]" :style="contentStyle" class="borderText__content">
+        <div
+          :class="[dynamicClass, isHovering ? hoverClass : '']"
+          :style="contentStyle"
+          class="borderText__content"
+          @mouseover="isHovering = true"
+          @mouseleave="isHovering = false"
+        >
           {{ text }}
         </div>
       </div>
@@ -29,7 +35,8 @@ const props = defineProps({
 });
 
 const dynamicClass = computed(() => `--${props.color}`);
-const hoverClass = computed(() => props.hoverColor ? `--${props.hoverColor}` : dynamicClass.value);
+const hoverClass = computed(() => props.hoverColor ? `--${props.hoverColor}` : '');
+const isHovering = ref(false);
 
 const contentStyle = computed(() => ({
   fontSize: `${props.fontSize}px`,
@@ -75,7 +82,7 @@ $colors: (
     padding: 0 $spacing-l;
     margin: 20px 0;
     transform: skew(45deg); // Apply skew to the content to create the parallelogram
-    transition: border 0.3s ease-in-out;
+    transition: border 0.3s ease-in-out, color 0.3s ease-in-out;
     color: var(--color);
     text-decoration: none;
     font-family: $font-button;
