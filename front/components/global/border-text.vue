@@ -9,6 +9,7 @@
           @mouseover="isHovering = true"
           @mouseleave="isHovering = false"
         >
+        <slot></slot>
           {{ text }}
         </div>
       </div>
