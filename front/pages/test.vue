@@ -78,38 +78,80 @@ getPlayerInfo();</script>
   </div>
 </template>
 
+ -->
+
+ <template>
+  <div class="test">
+    <h1>Statistiques du joueur pour CS:GO</h1>
+    <cards-player v-if="isDataLoaded" :playerData="playerData" :playerStats="transformStats(playerStats.playerstats.stats)"/>
+  </div>
+</template>
+
+<script setup lang="ts">
+import { ref } from 'vue';
+import axios from 'axios';
+
+const steamid = ref('76561197992709103');  // Remplacez par la valeur de votre choix ou liez-la à un élément de votre UI
+const playerStats = ref({});
+const isDataLoaded = ref(false);
+
+const transformStats = (statsArray) => {
+  const obj = {};
+  for (let stat of statsArray) {
+    obj[stat.name] = stat.value;
+  }
+  return obj;
+};
+
+const getStats = async () => {
+  console.log("getStats");
+  
+  try {
+    const response = await axios.get(`http://localhost:3001/api/getStatPlayer?steamid=${steamid.value}`);
+    playerStats.value = response.data;
+    console.log('playerStats.value',playerStats.value);
+    isDataLoaded.value = true;
+  } catch (error) {
+    console.error("Erreur lors de la récupération des stats du joueur:", error);
+  }
+};
+const playerData = ref({
+  pseudo: '',
+  playerImage: '',
+  profileUrl: ''
+});
+
+const getPlayerData = async () => {
+  console.log("getPlayerData");
+
+  try {
+    console.log("try");
+    
+    const response = await axios.get(`http://localhost:3001/api/steam?steamids=${steamid.value}`);
+    const playerInfo = response.data.response.players[0].player[0];  // Accéder à l'information correcte du joueur
+    const pseudo = playerInfo.personaname[0]; // Accéder au premier élément du tableau personaname
+    const playerImage = playerInfo.avatarfull[0]; // Accéder au premier élément du tableau avatarfull
+    const playerProfileurl = playerInfo.profileurl[0]; // Accéder au premier élément du tableau avatarfull
+
+
+    playerData.value.pseudo = pseudo;
+    playerData.value.playerImage = playerImage;
+    playerData.value.profileUrl = playerProfileurl;
+    
+  } catch (error) {
+    console.error("Erreur lors de la récupération des données du joueur:", error);
+  }
+};
+
+// Appeler la fonction lorsque le composant est monté
+onMounted(() => {
+  getStats();
+  getPlayerData();
+});
+</script>
+
 <style scoped lang="scss">
 .test {
   margin: 300px 50px;
 }
-</style> -->
-
-<script setup>
-import { ref } from 'vue';
-import axios from 'axios';
-
-const steamApiKey = 'YOUR_STEAM_API_KEY'; // Remplacez par votre clé API
-const steamId = '76561198207453521'; // SteamID du joueur
-const gameId = 730; // ID de CS:GO
-const playerStats = ref({});
-
-const url = `http://api.steampowered.com/ISteamUserStats/GetUserStatsForGame/v0002/?appid=${gameId}&key=${steamApiKey}&steamid=${steamId}`;
-
-const getPlayerStats = async () => {
-  try {
-    const response = await axios.get(url);
-    playerStats.value = response.data.playerstats;
-  } catch (error) {
-    console.error('Erreur lors de la récupération des statistiques du joueur:', error);
-  }
-};
-
-getPlayerStats();
-</script>
-
-<template>
-  <div>
-    <h1>Statistiques du joueur pour CS:GO</h1>
-    <!-- Vous pouvez maintenant utiliser playerStats dans votre template pour afficher les données -->
-  </div>
-</template>
+</style>
