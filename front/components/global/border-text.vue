@@ -89,7 +89,7 @@ $colors: (
     font-family: $font-button;
     font-size: $font-size-xl;
     letter-spacing: $letter-spacing-wide;
-    font-weight: $font-weight-bold;
+    font-weight: $font-weight-medium;
     border: 2px solid currentColor;
 
     &.--black {

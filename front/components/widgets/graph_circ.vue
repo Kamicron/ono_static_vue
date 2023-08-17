@@ -19,11 +19,10 @@ const props = defineProps({
     required: true
   },
   value: {
-    type: Number,
+    type: String,
     required: true
   }
 });
-console.log("value", props.value);
 
 const segmentStyle = computed(() => {
   const circumference = 100;
@@ -70,6 +69,8 @@ const segmentStyle = computed(() => {
   outline: none;
   background: none;
   flex: 0 0 100px;
+  margin: 0;
+  padding: 0;
 
   &-hole {
     fill: $black

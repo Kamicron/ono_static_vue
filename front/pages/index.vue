@@ -2,7 +2,7 @@
     <div class="header">
         <img class="header__img" src="static/img/landing-page/header.png" alt="membre des forces de l'ordre">
         <div class="header__title">
-            <border-text text="Old not Obsolete" :fontSize="124" :borderWidth="20" color="white"  />
+            <border-text text="Old not Obsolete" :fontSize="124" :borderWidth="16" color="secondary-color"  />
         </div>
         <div class="header__spacer"></div>
     </div>
@@ -37,7 +37,7 @@ body {
         font-family: $font-button;
         font-size: $font-size-xxxl;
         text-align: center;
-        -webkit-text-stroke: 1px $black;
+        // -webkit-text-stroke: 1px $black;
         transform: translate(-50%, -50%); // Combinez les transformations ici
 
     }

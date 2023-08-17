@@ -32,6 +32,7 @@ const getStats = async () => {
     const response = await axios.get(`http://localhost:3001/api/getStatPlayer?steamid=${steamid.value}`);
     playerStats.value = response.data;
     isDataLoaded.value = true;
+    
   } catch (error) {
     console.error("Erreur lors de la récupération des stats du joueur:", error);
   }
@@ -65,7 +66,6 @@ async function getPlayerInformation(nickname) {
     // Récupérer l'ID du joueur à partir de son pseudo
     const response = await fetch(`http://localhost:3001/api/faceit?nickname=${nickname}`);
     const data = await response.json();
-    console.log('data',data);    
     return data;
 
   } catch (error) {
@@ -83,9 +83,7 @@ async function getPlayerStatsByNickname(nickname) {
     const playerId = playerInfo.player_id;
 
     const response = await fetch(`http://localhost:3001/api/faceit/stats/${playerId}`);
-    statsData.value = await response.json(); // Mettez à jour ici
-    console.log('blablablablalba',statsData.value);
-    
+    statsData.value = await response.json(); // Mettez à jour ici    
     return statsData.value;
 
   } catch (error) {
@@ -94,23 +92,13 @@ async function getPlayerStatsByNickname(nickname) {
   }
 }
 
-
-getPlayerStatsByNickname('Kamikaz25').then(stats => {
-  console.log('stats', stats);
-  // Utilisez les stats comme vous le souhaitez
-});
-
 // Appeler la fonction lorsque le composant est monté
 onMounted(() => {
   getStats();
   getPlayerData();
+  getPlayerStatsByNickname('Kamikaz25')
 });
 
-const fetchPlayerStatsByNickname = async () => {
-  const stats = await getPlayerStatsByNickname('Kamikaz25');
-  console.log('stats', stats);
-  // Vous pouvez traiter les stats comme vous le souhaitez
-};
 </script>
 
 <style scoped lang="scss">
