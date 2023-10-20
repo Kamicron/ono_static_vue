@@ -2,14 +2,14 @@
   <section class="borderText">
     <div class="borderText__container">
       <div class="borderText__item">
-        <div
-          :class="[dynamicClass, isHovering ? hoverClass : '']"
-          :style="contentStyle"
-          class="borderText__content"
-          @mouseover="isHovering = true"
-          @mouseleave="isHovering = false"
-        >
-        <slot></slot>
+        <div :style="contentStyle" :class="[
+          dynamicClass,
+          isHovering ? hoverClass : '',
+          contentStyle,
+          'borderText__content',
+          blur ? 'blur' : ''
+        ]" @mouseover="isHovering = true" @mouseleave="isHovering = false">
+          <slot></slot>
           {{ text }}
         </div>
       </div>
@@ -18,21 +18,15 @@
 </template>
 
 <script setup lang="ts">
+import { colors } from '@/assets/js/variables/colors';
+
 const props = defineProps({
   text: String,
-  fontSize: {
-    type: [Number, String],
-    default: 16,
-  },
-  borderWidth: {
-    type: [Number, String],
-    default: 2,
-  },
-  color: {
-    type: String,
-    default: 'white',
-  },
-  hoverColor: String,
+  fontSize: { type: [Number, String], default: 16 },
+  borderWidth: { type: [Number, String], default: 2 },
+  color: { type: String, default: 'white' },
+  hoverColor: { type: String, default: '' },
+  blur: { type: Boolean, default: false }
 });
 
 const dynamicClass = computed(() => `--${props.color}`);
@@ -47,16 +41,16 @@ const contentStyle = computed(() => ({
 
 
 <style scoped lang="scss">
-$colors: (
-  black: $black,
-  dark-gray: $dark-gray,
-  medium-gray: $medium-gray,
-  light-gray: $light-gray,
-  background-color: $background-color,
-  white: $white,
-  main-color: $main-color,
-  secondary-color: $secondary-color,
-);
+// $colors: (
+//   black: $black,
+//   dark-gray: $dark-gray,
+//   medium-gray: $medium-gray,
+//   light-gray: $light-gray,
+//   background-color: $background-color,
+//   white: $white,
+//   main-color: $main-color,
+//   secondary-color: $secondary-color,
+// );
 
 .borderText {
   transform: skew(-45deg); // Apply the inverse skew so the text remains straight
@@ -92,9 +86,14 @@ $colors: (
     font-weight: $font-weight-medium;
     border: 2px solid currentColor;
 
+    &.blur {
+      backdrop-filter: blur(10px);
+    }
+
     &.--black {
       color: $black;
-      border-color: $black;;
+      border-color: $black;
+      ;
     }
 
     &.--dark-gray {
@@ -132,15 +131,57 @@ $colors: (
       border-color: $secondary-color;
     }
 
+    &.--dynamic {
+      color: $dynamic;
+      border-color: $dynamic;
+    }
+
+    &.--light-dynamic {
+      color: $light-dynamic;
+      border-color: $light-dynamic;
+    }
+
+
     &:hover {
-    &.--black { border-color: $black; }
-    &.--dark-gray { border-color: $dark-gray; }
-    &.--medium-gray { border-color: $medium-gray; }
-    &.--light-gray { border-color: $light-gray; }
-    &.--background-color { border-color: $background-color; }
-    &.--white { border-color: $white; }
-    &.--main-color { border-color: $main-color; }
-    &.--secondary-color { border-color: $secondary-color; }
-  }
+      &.--black {
+        border-color: $black;
+      }
+
+      &.--dark-gray {
+        border-color: $dark-gray;
+      }
+
+      &.--medium-gray {
+        border-color: $medium-gray;
+      }
+
+      &.--light-gray {
+        border-color: $light-gray;
+      }
+
+      &.--background-color {
+        border-color: $background-color;
+      }
+
+      &.--white {
+        border-color: $white;
+      }
+
+      &.--main-color {
+        border-color: $main-color;
+      }
+
+      &.--secondary-color {
+        border-color: $secondary-color;
+      }
+
+      &.--dynamic {
+        border-color: $dynamic;
+      }
+
+      &.--light-dynamic {
+        border-color: $light-dynamic;
+      }
+    }
   }
 }</style>

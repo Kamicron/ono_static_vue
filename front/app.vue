@@ -25,6 +25,8 @@ import 'sanitize.css/typography.css';
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400;500;700&display=swap');
 
 body {
-  background-color: $background-color;
+  // background-color: $background-color;
+  background-color: $dark-main;
+
 }
 </style>

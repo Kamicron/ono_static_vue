@@ -5,22 +5,23 @@
         <ul class="nav__ul">
           <li>
             <a class="nav__ul--link" href="#">
-              <border-text text="Acceuil" :fontSize="24" :borderWidth="3" color="white" hoverColor="secondary-color" />
+              <border-text text="Acceuil" :fontSize="24" :borderWidth="3" color="white" hoverColor="light-dynamic" />
             </a>
           </li>
           <li>
             <a class="nav__ul--link" href="#">
-              <border-text text="Roster" :fontSize="24" :borderWidth="3" color="white" hoverColor="secondary-color" />
+              <border-text text="Roster" :fontSize="24" :borderWidth="3" color="white" hoverColor="light-dynamic" />
             </a>
           </li>
           <li>
             <a class="nav__ul--link" href="#">
-              <border-text text="Contact" :fontSize="24" :borderWidth="3" color="white" hoverColor="secondary-color" />
+              <border-text text="Contact" :fontSize="24" :borderWidth="3" color="white" hoverColor="light-dynamic" />
             </a>
           </li>
         </ul>
       </nav>
       <!-- <header-logo title="h1"/> -->
+      <img src="/img/logo/logo_ono-colored-dark_bg.png" alt="logo de ONO, coloré pour fond noir" class="logo_ono">
     </header>
   </div>
 </template>
@@ -51,9 +52,23 @@ onMounted(() => {
 
 
 <style lang="scss" scoped>
-
 .header-wrapper {
   position: relative; // ou rien si vous ne voulez pas spécifier de position ici
+  height: 0;
+}
+
+header {
+  position: relative;
+}
+
+.logo_ono {
+  position: absolute;
+  top: 5px;
+  right: 50px;
+  z-index: 1;
+  width: 75px;
+  transform: skew(45deg); // Appliquer le skew inverse pour que le texte reste droit
+
 }
 
 header {
@@ -63,17 +78,19 @@ header {
     top: 0;
     left: -150px;
     z-index: 1000; // pour le mettre au-dessus des autres éléments
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // ombre optionnelle pour le démarquer du contenu
+    box-shadow: 20px 20px 20px rgba($light-main, 0.4); // 0.5 est le niveau d'opacité, vous pouvez le changer comme vous le souhaitez
+
   }
 
-  background-color: $dark-gray;
+  // background-color: $dark-gray;
+  background-color: $main;
   position: relative;
   width: 1000px;
   z-index: 100;
   left: -150px;
   top: 100px;
   padding-left: $spacing-xl;
-  box-shadow: 20px 20px 20px $light-gray;
+  box-shadow: 20px 20px 20px rgba($light-main, 0.4); // 0.5 est le niveau d'opacité, vous pouvez le changer comme vous le souhaitez
   transform: skew(-45deg); // Appliquer le skew inverse pour que le texte reste droit
   padding: 20px 0;
 

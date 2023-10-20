@@ -27,7 +27,7 @@
     background: transparent;
     transform: translateX(0);
     font-family: $font-button;
-    background-color: $dark-gray;
+    background-color: $main;
     width: auto;
     text-transform: uppercase;
     justify-content: flex-end;

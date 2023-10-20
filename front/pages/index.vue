@@ -2,7 +2,7 @@
     <div class="header">
         <img class="header__img" src="static/img/landing-page/header.png" alt="membre des forces de l'ordre">
         <div class="header__title">
-            <border-text text="Old not Obsolete" :fontSize="124" :borderWidth="16" color="secondary-color"  />
+            <border-text blur text="Old not Obsolete" :fontSize="124" :borderWidth="16" color="dynamic"  />
         </div>
         <div class="header__spacer"></div>
     </div>
@@ -39,7 +39,6 @@ body {
         text-align: center;
         // -webkit-text-stroke: 1px $black;
         transform: translate(-50%, -50%); // Combinez les transformations ici
-
     }
 
     &__img {
@@ -60,7 +59,8 @@ body {
     position: sticky;
     width: 100%;
     height: 150vh;
-    background-color: $background-color;
+    // background-color: $background-color;
+    background-color: $dark-main;
     clip-path: polygon(22% 3%, 40% 3%, 44% 6%, 72% 6%, 76% 2%, 100% 2%, 100% 100%, 0 100%, 0 0, 19% 0);
     top: -150px;
     z-index: 2;
