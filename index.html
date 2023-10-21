@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carte d'Article</title>
+<style>
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+  }
+  .card {
+    width: 300px;
+    perspective: 1500px;
+    margin-bottom: 5rem;
+  }
+  .card-inner {
+    width: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+  }
+  .card:hover .card-inner {
+    transform: rotateY(180deg);
+  }
+  .card-front, .card-back {
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+  .card-front {
+    background: linear-gradient(to bottom right, #008CBA, #005f5f);
+    clip-path: polygon(0% 0%, 100% 0%, 85% 100%, 15% 100%);
+  }
+  .card-back {
+    background-color: #fff;
+    transform: rotateY(180deg);
+    clip-path: polygon(0% 0%, 100% 0%, 85% 100%, 15% 100%);
+    padding: 2rem;
+  }
+  .card-back h3, .card-back p, .card-back button {
+    margin: 1rem 0;
+  }
+  .card-back button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #008CBA;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  .card-back button:hover {
+    background-color: #005f5f;
+  }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="card-inner">
+    <div class="card-front"></div>
+    <div class="card-back">
+      <h3>Titre de l'article</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <button onclick="readMore()">Lire plus</button>
+    </div>
+  </div>
+</div>
+
+<!-- <script>
+  function readMore() {
+    alert('Redirection vers l\'article...');
+    // Ajoutez votre logique de redirection ici, par exemple :
+    // window.location.href = 'url_de_l_article';
+  }
+</script> -->
+
+</body>
+</html>

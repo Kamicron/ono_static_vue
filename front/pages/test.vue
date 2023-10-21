@@ -1,7 +1,8 @@
 <template>
   <div class="test">
-    <button-v-2 text-button="Voir plus" :color="color"/>  
-    <button-v-2 text-button="Voir plus" color="#00FF00"/>  
+    <!-- <button-v-2 text-button="Voir plus" :color="color"/>  
+    <button-v-2 text-button="Voir plus" color="#00FF00"/>   -->
+      <cards-article />
   </div>
 </template>
 
@@ -16,6 +17,6 @@ const color = ref(colors.alternative);
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 500px;
+  margin-top: 250px;
 }
 </style>

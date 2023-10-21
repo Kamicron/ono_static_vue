@@ -1,7 +1,7 @@
 
 export const colors = {
-  lightDynamic: '#DD725F',
-  dynamic: 'CA422B',
+  lightDynamic: '#E37663',
+  dynamic: 'D3462F',
   darkDynamic: '9D362F',
 
   lightMain: '46556E',

@@ -41,16 +41,16 @@ const contentStyle = computed(() => ({
 
 
 <style scoped lang="scss">
-// $colors: (
-//   black: $black,
-//   dark-gray: $dark-gray,
-//   medium-gray: $medium-gray,
-//   light-gray: $light-gray,
-//   background-color: $background-color,
-//   white: $white,
-//   main-color: $main-color,
-//   secondary-color: $secondary-color,
-// );
+$colors: (
+  black: $black,
+  dark-gray: $dark-gray,
+  medium-gray: $medium-gray,
+  light-gray: $light-gray,
+  background-color: $background-color,
+  white: $white,
+  main-color: $main-color,
+  secondary-color: $secondary-color,
+);
 
 .borderText {
   transform: skew(-45deg); // Apply the inverse skew so the text remains straight
@@ -87,7 +87,7 @@ const contentStyle = computed(() => ({
     border: 2px solid currentColor;
 
     &.blur {
-      backdrop-filter: blur(10px);
+      // backdrop-filter: blur(10px);
     }
 
     &.--black {

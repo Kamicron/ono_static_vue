@@ -6,8 +6,11 @@
         </div>
         <div class="header__spacer"></div>
     </div>
-    <div class="scrollable-content"></div>
+    <div class="scrollable-content">
+        <LayoutPresentation />
+    </div>
     <div class="scrollable-content white"></div>
+
     <WidgetsDiscord />
 </template>
 
@@ -48,6 +51,7 @@ body {
         object-fit: cover;
         object-position: center;
         z-index: 0;
+        filter: blur(10px);
     }
 
     &__spacer {
@@ -68,8 +72,13 @@ body {
 }
 
 .white {
-    background-color: white;
+    background: $dark-dynamic;
+
     position: relative;
     z-index: 3;
+}
+.test {
+    background: $dark-main;
+
 }
 </style>
